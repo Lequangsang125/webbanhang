@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useRegisterUserMutation } from '../redux/features/auth/authApi';
 
 const Register = () => {
     const [message, setMessage] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const [registerUser,{isLoading}] = useRegisterUserMutation()
+    const navigate = useNavigate()
+
     const handleRegister = async (e) => {
         e.preventDefault();
         const data = {
@@ -13,8 +18,14 @@ const Register = () => {
             email,
             password
         }
-        console.log(data);
-        
+        try {
+           await registerUser(data).unwrap();
+           alert("dang ky thanh cong")
+           navigate("/login")
+    
+        } catch (error) {
+            setMessage('dang ky that bai')
+        }
 
     }
     return (
@@ -39,11 +50,13 @@ const Register = () => {
                         className='w-full bg-gray-100 focus:outline-none px-5 py-3' />
 
                     <input
+
                         type="password" name="password" id="password"
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder='mật khẩu '
                         required
                         className='w-full bg-gray-100 focus:outline-none px-5 py-3' />
+
                     {
                         message && <p className='text-red-500'>{message}</p>
                     }
@@ -52,7 +65,7 @@ const Register = () => {
                     >ĐĂNG KÝ</button>
                 </form>
                 <p className='my-5 italic text-sm text=center '>Bạn đã có tài khoản ?
-                    <Link to="/login" className='text-red-700 px-1 underline font-semibold'> Đăng ký
+                    <Link to="/login" className='text-red-700 px-1 underline font-semibold'> Đăng nhập
                     </Link> tại đây. </p>
             </div>
         </section>
