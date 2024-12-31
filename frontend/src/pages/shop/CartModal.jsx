@@ -63,7 +63,7 @@ const CartModal = ({ products, isOpen, onClose }) => {
                         >+</button>
                         <div className='ml-5'>
                           <button
-                          onClick={(e) => handleRemove(e,item.id)}
+                          onClick={(e) => handleRemove(e,item._id)}
                             className='text-red-500 hover:text-red-800 mr-4'
                           >Remove</button>
                         </div>
