@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { useLoginUserMutation } from '../redux/features/auth/authApi';
 import { setUser } from '../redux/features/auth/authSlice';
-
+import Swal from 'sweetalert2';
 const Login = () => {
     const [message, setMessage] = useState('');
     const [email, setEmail] = useState('')
@@ -24,14 +24,23 @@ const Login = () => {
         try {
             const res = await loginUser(data).unwrap();
             console.log(res);
-            const {token,user} = res
-            dispath(setUser({user}))
-            alert('login thanh cong')
+            const { token, user } = res
+            dispath(setUser({ user }))
+
+            Swal.fire({
+                title: "Đăng nhập thành công!",
+                icon: "success",
+                confirmButtonText: "Trang chủ"
+            });
             navigate("/")
         } catch (error) {
-            setMessage('Tài khoản không tồn tại hoặc mật khẩu sai ')
+            Swal.fire({
+                title: "Oops...",
+                text: "Nhập sai tài khoản hoặc mật khẩu.",
+                icon: "error",
+                confirmButtonText: "Thử lại "
+            })
         }
-
 
 
     }
