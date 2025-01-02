@@ -6,17 +6,18 @@ const PromoBanner = () => {
         <div className='banner__card'>
             <span><i className="ri-truck-line"></i></span>
             <h4>Free giao hang</h4>
-            <p>okokkokokoko</p>
+            <p>Cung cấp sự tiện lợi và khả năng mua sắm từ bất kỳ đâu, bất kỳ lúc nào.</p>
         </div>
         <div className='banner__card'>
             <span><i className="ri-exchange-dollar-line"></i></span>
             <h4>Thanh toan nhanh chong</h4>
-            <p>okokkokokoko</p>
+            <p>Thương mại điện tử có một hệ thống đánh giá nơi khách hàng có thể chia sẻ phản hồi.</p>
         </div>
         <div className='banner__card'>
             <span><i className="ri-user-2-fill"></i></span>
             <h4>Support nhiet tinh</h4>
-            <p>okokkokokoko</p>
+            <p>Cung cấp dịch vụ hỗ trợ khách hàng để giúp khách hàng giải 
+                đáp thắc mắc và xử lý vấn đề.</p>
         </div>
    </section>
   )
