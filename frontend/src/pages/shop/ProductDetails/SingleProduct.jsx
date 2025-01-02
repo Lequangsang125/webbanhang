@@ -18,7 +18,7 @@ const SingleProduct = () => {
         dispatch(addToCart(product))
     }
     
-    if(isLoading) return <p>Loading...</p>
+    if(isLoading) return <p>Đang tải sản phẩm...</p>
     if(error) return <p>Error loading product details.</p>
     
     return (

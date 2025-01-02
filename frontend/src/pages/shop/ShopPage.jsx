@@ -53,8 +53,8 @@ const ShopPage = () => {
         }
     }
 
-    if (isLoading) return <div>Loading...</div>
-    if (error) return <div>Error loading product...</div>
+    if (isLoading) return <div>Đang tải sản phẩm...</div>
+    if (error) return <div>Lỗi tải sản phẩm lên...</div>
 
     const startProduct = (currentPage - 1) * ProductsPerPage + 1;
     const endProduct = startProduct + products.length - 1;
@@ -62,7 +62,7 @@ const ShopPage = () => {
     return (
         <>
             <section className='section__container bg-primary-light'>
-                <h2 className='section__header capitalize'>Shop page</h2>
+                <h2 className='section__header capitalize'>Cửa hàng</h2>
                 <p className='section__subheader'>iiiiiiiiiiiiiiiiiiiiiiii</p>
             </section>
 

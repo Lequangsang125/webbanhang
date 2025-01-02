@@ -3,10 +3,10 @@ import React from 'react'
 const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters }) => {
     return (
         <div className='space-y-5 flex-shrink-0'>
-            <h3>Filters</h3>
+            <h3>Bộ lọc</h3>
             {/* category*/}
             <div className='flex flex-col space-x-2'>
-                <h4 className='font-medium text-lg'>Category</h4>
+                <h4 className='font-medium text-lg'>Danh mục</h4>
                 <hr />
                 {
                     filters.categories.map((category) => (
@@ -23,7 +23,7 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
 
             {/* color*/}
             <div className='flex flex-col space-x-2'>
-                <h4 className='font-medium text-lg'>Color</h4>
+                <h4 className='font-medium text-lg'>Màu sắc</h4>
                 <hr />
                 {
                     filters.colors.map((color) => (
@@ -40,7 +40,7 @@ const ShopFiltering = ({ filters, filtersState, setFiltersState, clearFilters })
 
             {/* price */}
             <div className='flex flex-col space-x-2'>
-                <h4 className='font-medium text-lg'>Price Range</h4>
+                <h4 className='font-medium text-lg'>Khoảng giá</h4>
 
                 <hr />
                 {
