@@ -1,5 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { loadStripe } from '@stripe/stripe-js';
+import { getBaseUrl } from '../../utils/baseURL';
+
 
 const OrderSummary = () => {
   const dispatch = useDispatch()
@@ -16,8 +19,30 @@ const OrderSummary = () => {
 
   //payment integration 
   const makePayment = async (e) => {
+    const stripe = await loadStripe(import.meta.env.VITE_STRIPE_PK);
+    const body = {
+      products: products,
+      userId: user?._id
+    }
+    const headers = {
+      "Content-Type": "application/json",
+    }
 
-    
+    const response = await fetch(`${getBaseUrl()}/api/orders/create-checkout-session`,{
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(body)
+    })
+    const session = await response.json();
+    console.log("session:",session);
+
+    const result = stripe.redirectToCheckout({
+      sessionId: session.id,
+    })
+    console.log("result:", result);
+    if(result.error){
+      console.error("error:", result.error);     
+    }
   }
   return (
     <div className='bg-primary-light mt-5 rounded text-base'>

@@ -101,7 +101,7 @@ const ShopPage = () => {
                             <button
                                 disabled={currentPage === totalPages}
                                 onClick={() => handlePageChange(currentPage + 1)}
-                                className='px-4 py-2 bg-gray-300 text-gray-700 rounded-md'><i class="ri-arrow-right-line"></i></button>
+                                className='px-4 py-2 bg-gray-300 text-gray-700 rounded-md'><i className="ri-arrow-right-line"></i></button>
                         </div>
                     </div>
                 </div>
