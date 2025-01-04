@@ -1,5 +1,6 @@
 const express = require('express');
 const Order = require('./orders.model');
+const verifyToken = require('../middleware/verifyToken');
 const router = express.Router();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -22,8 +23,8 @@ router.post("/create-checkout-session", async (req, res) => {
             payment_method_types: ['card'],
             line_items: lineItems,
             mode: 'payment',
-            success_url: `$http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `$http://localhost:5173/cancel`,
+            success_url: `http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `http://localhost:5173/cancel`,
         })
 
         res.json({ id: session.id })
@@ -34,7 +35,6 @@ router.post("/create-checkout-session", async (req, res) => {
 })
 
 //comfirm payment 
-
 router.post("/confirm-payment", async (req, res) => {
     const { session_id } = req.body;
     try {
@@ -66,6 +66,54 @@ router.post("/confirm-payment", async (req, res) => {
     } catch (error) {
         console.error("Error confirming payment:", error);
         res.status(500).send({ message: "Error confirm payment" });
+    }
+})
+
+// get order by email address
+router.get('/:email', async (req, res) => {
+    const { email } = req.params;
+    if(!email){
+        return res.status(400).send({message: "Email is required"});
+    }
+    try {
+        const orders = await Order.find({email: email});
+        if(orders.length === 0 || !orders){
+            return res.status(404).send({order: 0,message: "No orders found"});
+        }
+        res.status(200).send({orders});
+    } catch (error) {
+      console.error("error fetching orders by email",error);
+      res.status(500).send({message: "Error fetching orders by email"});
+      
+    }
+}
+)
+
+// get order by id 
+router.get("/order/:id",async (req,res) => {
+    try {
+        const order = await Order.findById(req.params.id);
+        if(!order){
+            return res.status(404).send({message: "Order not found"});
+        }
+        res.status(200).send(order);
+    } catch (error) {
+        console.error("error fetching order by id",error);
+        res.status(500).send({message: "Error fetching order by id"});
+    }
+})
+
+// get all orders
+router.get("/", verifyToken ,async (req,res) => {
+    try {
+        const orders = await Order.find().sort({createdAt: -1})
+        if(orders.length === 0 ){
+            return res.status(404).send({message: "No orders found"});
+        }
+        res.status(200).send(orders);
+    } catch (error) {
+        console.error("error fetching all orders",error);
+        res.status(500).send({message: "Error fetching all orders"});
     }
 })
 
