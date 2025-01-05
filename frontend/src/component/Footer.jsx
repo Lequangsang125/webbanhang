@@ -58,7 +58,7 @@ const Footer = () => {
                 </div>
             </footer>
             <div className='footer__bar'>
-            Copyright © by sanglq125@gmail.com
+            Copyright © by lequangsang
             </div>
         </>
     )
