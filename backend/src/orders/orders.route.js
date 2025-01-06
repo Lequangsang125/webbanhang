@@ -1,6 +1,7 @@
 const express = require('express');
 const Order = require('./orders.model');
 const verifyToken = require('../middleware/verifyToken');
+const verifyAdmin = require('../middleware/verifyAdmin');
 const router = express.Router();
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -104,7 +105,7 @@ router.get("/order/:id",async (req,res) => {
 })
 
 // get all orders
-router.get("/", verifyToken ,async (req,res) => {
+router.get("/" ,async (req,res) => {
     try {
         const orders = await Order.find().sort({createdAt: -1})
         if(orders.length === 0 ){
@@ -114,6 +115,50 @@ router.get("/", verifyToken ,async (req,res) => {
     } catch (error) {
         console.error("error fetching all orders",error);
         res.status(500).send({message: "Error fetching all orders"});
+    }
+})
+
+//update order status
+router.patch("/update-status/:id", async (req,res) => {
+    const {id} = req.params;
+    const {status} = req.body;
+    if(!status){
+        return res.status(400).send({message: "Status is required"});
+    }
+    try {
+        const updatedOrder = await Order.findByIdAndUpdate(id,{
+            status: status,
+            updatedAt: new Date(),
+        },{
+            new: true, runValidators: true
+        });
+        if(!updatedOrder){
+            return res.status(404).send({message: "Order not found"});
+        }
+        res.status(200).json({
+            messafe: "Order status updated successfully",
+            order: updatedOrder});
+    } catch (error) {
+        console.error("error updating order status",error);
+        res.status(500).send({message: "Error updating order status"});
+    }
+})
+
+//delete order
+router.delete("/delete/:id", async (req,res) =>{
+    const {id} = req.params;
+    try {
+        const order = await Order.findByIdAndDelete(id);
+        if(!order){
+        return res.status(404).send({message: "order not found"});
+        }
+        res.status(200).json({
+            message: "Order deleted successfully",
+            order: deletedOrder
+        });
+    } catch (error) {
+        console.error("error deleting order",error);
+        res.status(500).send({message: "Error deleting order"});
     }
 })
 

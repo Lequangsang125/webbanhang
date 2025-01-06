@@ -31,7 +31,7 @@ router.post("/create-product", async (req, res) => {
     }
 })
 
-// Lấy full danh sách sản phẩmphẩm
+// Lấy full danh sách sản phẩm 
 router.get("/", async (req, res) => {
     try {
         const { category, color, minPrice, maxPrice, page = 1, limit = 10 } = req.query;
