@@ -1,7 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 import { useGetUserStatsQuery } from '../../../../redux/features/stats/statsApi'
+import UserStats from './UserStats';
 
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 const UserDMain = () => {
     const { user } = useSelector((state) => state.auth)
@@ -16,7 +20,7 @@ const UserDMain = () => {
         datasets: [
             {
                 label: 'User Stats',
-                data: [stats.totalPayments, stats.totalReviews, stats.totalPurchasedProducts],
+                data: [stats.totalPayments, stats.totalReviews * 100, stats.totalPurchasedProducts *100 ],
                 backgroundColor: 'rgba(75,192,192,0.2)',
                 borderColor: 'rgba(75,192,192,1)',
                 borderWidth: 1,
@@ -31,18 +35,23 @@ const UserDMain = () => {
             },
             tooltip: {
                 callbacks: {
-                    label: function(tooltipItem) {
-                        if(tooltipItem.label === 'Total Payment'){
-        
-                        }
+                    label: function (tooltipItem) {
+                        return `${tooltipItem.label}: ${tooltipItem.raw}`
                     }
                 }
             }
         }
     }
     return (
-        <div>
-            UserDMain
+        <div className='p-6'>
+            <div>
+                <h1 className='text-2xl font-semibold mb-4'>User das</h1>
+                <p>Hi,{user?.username}! welcome to your user dashboard</p>
+            </div>
+            <UserStats stats={stats}/>
+            <div className='mb-6'>
+                <Bar data={data} options={options} />
+            </div>
         </div>
     )
 }
