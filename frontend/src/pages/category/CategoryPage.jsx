@@ -22,7 +22,7 @@ const CategoryPage = () => {
     <>
       <section className='section__container bg-primary-light'>
         <h2 className='section__header capitalize'>{categoryName}</h2>
-        <p className='section__subheader'>iiiiiiiiiiiiiiiiiiiiiiii</p>
+        <p className='section__subheader'>iiiiiiiiiiiiiiiiiiiádfádfiiiii</p>
         </section>
         {/**products card */}
         <div className='section__container'>
