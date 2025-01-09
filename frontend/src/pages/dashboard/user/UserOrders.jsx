@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useGetOrdersByEmailQuery } from '../../../redux/features/orders/orderApi';
+import { Link } from 'react-router-dom'
 
 const UserOrders = () => {
   const { user } = useSelector((state) => state.auth);
@@ -65,27 +66,25 @@ const UserOrders = () => {
                           new Date(order?.createdAt).toLocaleDateString()
                         }
                       </td>
-                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">             
                         <span
-                          className={`p-1 rounded ${order?.status === 'complete'
-                              ? 'bg-green-100 text-green-700'
-                              : order?.status === 'pending'
-                                ? 'bg-red-100 text-red-700'
-                                : order?.status === 'process'
-                                  ? 'bg-indigo-100 text-indigo-700'
-                                  : 'bg-gray-100 text-gray-700'  // Lớp mặc định nếu không khớp
+                          className={`p-1 rounded
+                             ${order?.status === 'completed' ? 'bg-green-100 text-green-700'
+                              : order?.status === 'pending' ? 'bg-red-100 text-red-700'
+                                : order?.status === 'processing' ? 'bg-blue-100 text-blue-700'
+                                  : 'bg-indigo-100 text-indigo-700'  // Lớp mặc định nếu không khớp
                             }`}
-                        />
-                        {order?.status}
+                        >{order?.status}</span>
                       </td>
-                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">                   
                         {order?.amount}$
                       </td>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                        <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-                        View order
+                      <Link to={`/orders/${order?._id}`}
+                      className='underline hover:text-primary'
+                      >
+                      View order
+                      </Link>
                       </td>
                     </tr>
 
@@ -98,17 +97,7 @@ const UserOrders = () => {
           </div>
         </div>
       </div>
-      <footer className="relative pt-8 pb-6 mt-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center md:justify-between justify-center">
-            <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-              <div className="text-sm text-blueGray-500 font-semibold py-1">
-                Made with <a href="https://www.creative-tim.com/product/notus-js" className="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" className="text-blueGray-500 hover:text-blueGray-800" target="_blank"> Creative Tim</a>.
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+     
     </section>
   )
 }
