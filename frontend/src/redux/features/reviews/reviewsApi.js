@@ -3,7 +3,7 @@ import { getBaseUrl } from '../../../utils/baseURL'
 
 const reviewApi = createApi ({
     reducerPath:'reviewApi',
-    baseQuery: fetchBaseQuery({
+    baseQuery:fetchBaseQuery({
         baseUrl: `${getBaseUrl()}/api/reviews`,
         credentials: 'include',
     }),
@@ -22,7 +22,7 @@ const reviewApi = createApi ({
                 url: "/total-reviews"
             })
         }),
-        getReviewsByUserId: builder.mutation({
+        getReviewsByUserId: builder.query({
             query: (userId) =>({
                 url: `/${userId}`
             }),
@@ -30,5 +30,5 @@ const reviewApi = createApi ({
         })
     })
 })
-export const {usePostReviewMutation, useGetReviewsByUserIdMutation,useGetReviewsCountQuery} = reviewApi
+export const {usePostReviewMutation, useGetReviewsCountQuery, useGetReviewsByUserIdQuery} = reviewApi
 export default reviewApi
