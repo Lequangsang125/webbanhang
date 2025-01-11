@@ -13,7 +13,7 @@ router.get("/user-stats/:email", async (req, res) => {
     return res.status(400).send({ message: "Email is required" });
   }
   try {
-    const user = await User.find({ email: email });
+    const user = await User.findOne({ email: email });
     if (!user) return res.status(404).send({ message: "User not found" });
 
     // sum of all orders
