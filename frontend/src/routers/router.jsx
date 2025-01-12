@@ -16,6 +16,7 @@ import OrderDetails from "../pages/dashboard/user/OrderDetails";
 import UserPayments from "../pages/dashboard/user/UserPayments";
 import UserReviews from "../pages/dashboard/user/UserReviews";
 import UserProfile from "../pages/dashboard/user/UserProfile";
+import AdminDMain from "../pages/dashboard/admin/dashboard/AdminDMain";
 
 
 const router = createBrowserRouter([
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
         {path: "reviews",element: <UserReviews/>},
         
         //admin routes only accessible by admin TODO private routers with role field
-        { path: "admin",element: <PrivateRoute role="admin"> <div>admin main</div> </PrivateRoute>},
+        { path: "admin",element: <PrivateRoute role="admin"> <AdminDMain/> </PrivateRoute>},
         {path: "add-new-post",element:<PrivateRoute role="admin"> <div>New post</div> </PrivateRoute>},
         {path: "manage-products",element: <PrivateRoute role="admin"> <div>manage post</div> </PrivateRoute>},
         {path: "update-product/:id",element:<PrivateRoute role="admin"> <div>update post</div> </PrivateRoute>},
