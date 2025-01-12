@@ -45,7 +45,7 @@ router.get("/user-stats/:email", async (req, res) => {
   }
 });
 
-// admin status
+// admin stats
 router.get("/admin-stats", async (req, res) => {
   try {
     const totalOrders = await Order.countDocuments();
@@ -68,9 +68,11 @@ router.get("/admin-stats", async (req, res) => {
     const monthlyEarningsResult = await Order.aggregate([
         {
             $group: {
-            _id: { $month: "$createdAt" },
-            year: { $year: "$createdAt" },
-            monthlyEarnings: { $sum: "$amount" },
+              _id: {
+                year: { $year: "$createdAt" },
+                month: { $month: "$createdAt" },
+              },
+              monthlyEarnings: { $sum: "$amount" },
             },
         },
         {

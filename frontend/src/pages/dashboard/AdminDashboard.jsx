@@ -6,7 +6,7 @@ import { logout } from '../../redux/features/auth/authSlice';
 
 const AdminDashboard = () => {
     const navItems = [
-        { path: '/dashboard', label: 'Bảng điều khiển Admin' },
+        { path: '/dashboard/admin', label: 'Bảng điều khiển Admin' },
         { path: "/dashboard/add-new-post", label: 'Thêm bài viết' },
         { path: "/dashboard/manage-products", label: 'Quản lý sản phẩm' },
         { path: "/dashboard/users", label: 'Quản lý người dùng' },
