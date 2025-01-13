@@ -13,7 +13,7 @@ const AdminDMain = () => {
   return (
     <div className='p-6'>
       <div>
-        <h1 className='text-2xl font-semibold mb-4'>Admin Dashboard</h1>
+        <h1 className='text-2xl font-semibold mb-4'>Bảng điều khiển của ADMIN</h1>
         <p className='text-gray-500'>Xin chào {user?.username}. Chào mừng bạn đến với bảng điều khiển quản trị viên.</p>
         <AdminStats stats={stats}/>
         <AdminStatsChart stats={stats}/>

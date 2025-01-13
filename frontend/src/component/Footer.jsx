@@ -10,10 +10,10 @@ const Footer = () => {
         <>
             <footer className='section__container footer__container'>
                 <div className='footer__col'>
-                    <h4>Contact infor</h4>
+                    <h4>Thông tin liên hệ</h4>
                     <p>
                         <span><i className="ri-map-pin-2-fill"></i></span>
-                        khu 8 thi tran thanh ba, phu tho
+                        sanglq125@gmail.com 
                     </p>
                     <p>
                         <span><i className="ri-mail-fill"></i></span>
@@ -21,28 +21,28 @@ const Footer = () => {
                     </p>
                     <p>
                         <span><i className="ri-phone-fill"></i></span>
-                        1234567890
+                        123456789
                     </p>
                 </div>
 
                 <div className='footer__col'>
-                    <h4>Conpany</h4>
-                    <a href="/">Home</a>
-                    <a href="/">About Us</a>
-                    <a href="/">Work With Us</a>
-                    <a href="/">Our Blogs</a>
-                    <a href="/">Trems & Conditions</a>
+                    <h4>Công ty</h4>
+                    <a href="/">Trang chủ</a>
+                    <a href="/">Về chúng tôi</a>
+                    <a href="/">Làm việc với chúng tôi</a>
+                    <a href="/">Blog của chúng tôi</a>
+                    <a href="/">Điều khoản</a>
 
 
                 </div>
 
                 <div className='footer__col'>
-                    <h4>Useful link</h4>
-                    <a href="/">Help</a>
-                    <a href="/">Track My Oder</a>
-                    <a href="/">Men</a>
-                    <a href="/">Women</a>
-                    <a href="/">Dress</a>
+                    <h4>Hữu ích</h4>
+                    <a href="/">Giúp đỡ</a>
+                    <a href="/">Theo dõi đơn hàng</a>
+                    <a href="/">Đàn ông</a>
+                    <a href="/">Phụ nữ</a>
+                    <a href="/">Đầm</a>
 
                 </div>
                 <div className='footer__col'>

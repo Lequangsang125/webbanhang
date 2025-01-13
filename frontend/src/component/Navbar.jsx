@@ -29,19 +29,19 @@ const Navbar = () => {
 
   //admin dropdown menu
   const adminDropDownMenus = [
-    {label: "Dashboard", path: "/dashboard/admin"},
-    {label: "Manage Items", path: "/dashboard/manage-products"},
-    {label: "All Orders", path: "/dashboard/manage-orders"},
-    {label: "Add New Post", path: "/dashboard/add-new-post"},
+    {label: "Bảng diều khiển ", path: "/dashboard/admin"},
+    {label: "Quản lý mục", path: "/dashboard/manage-products"},
+    {label: "Tất cả đơn hàng", path: "/dashboard/manage-orders"},
+    {label: "Thêm sản phẩm", path: "/dashboard/add-product"},
 
   ]
 
   //user dropdown menus
   const userDropDownMenus = [
-    {label: "Dashboard", path: "/dashboard"},
-    {label: "Profile", path: "/dashboard/profile"},
-    {label: "Payment", path: "/dashboard/payments"},
-    {label: "Orders", path: "/dashboard/orders"},
+    {label: "Bảng điều khiển", path: "/dashboard"},
+    {label: "Trang cá nhân", path: "/dashboard/profile"},
+    {label: "Chi trả", path: "/dashboard/payments"},
+    {label: "Đặt hàng", path: "/dashboard/orders"},
 
   ]
 
@@ -51,7 +51,7 @@ const Navbar = () => {
     try {
       await logoutUser().unwrap();
       dispatch(logout())
-      navigate('/')
+      navigate('/login')
     } catch (error) {
       console.error("faile to logout",error);
       
@@ -105,7 +105,7 @@ const Navbar = () => {
                                className='dropdown-items' to={menu.path}>{menu.label}</Link>
                             </li>
                           ))}
-                          <li><Link onClick={handleLogout}>Logout</Link></li>
+                          <li><Link onClick={handleLogout}>Đăng xuất</Link></li>
                         </ul>
                       </div>
                     )

@@ -12,7 +12,7 @@ const UserStats = ({stats}) => {
 
           <div className='bg-white shadow-md rounded-lg p-6 border border-gray-200
           hover:border-primary cursor-pointer hover:scale-105 transition-all duration-200'>
-            <h2 className='text-xl font-semibold mb-2'>Tổng bình luận :</h2>
+            <h2 className='text-xl font-semibold mb-2'>Tổng đánh giá :</h2>
             <p className='text-2xl font-bold'>{stats?.totalReviews}</p>
           </div>
 
