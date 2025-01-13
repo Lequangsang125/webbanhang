@@ -63,7 +63,7 @@ const ShopPage = () => {
         <>
             <section className='section__container bg-primary-light'>
                 <h2 className='section__header capitalize'>Cửa hàng</h2>
-                <p className='section__subheader'>iiiiiiiiiiiiiiiiiiiiiiii</p>
+                <p className='section__subheader'></p>
             </section>
 
             <section className='section__container'>
@@ -74,7 +74,7 @@ const ShopPage = () => {
                     <div>
                         <h3
                             className='text-xl font-medium mb-4'>
-                                Showing {startProduct} to {endProduct} of {totalProducts} products
+                                Hiển thị {startProduct} đến {endProduct} trong {totalProducts} sản phẩm
 
                         </h3>
                         <ProductCarts products={products} />

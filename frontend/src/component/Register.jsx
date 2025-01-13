@@ -39,7 +39,7 @@ const Register = () => {
     }
 }
         return (
-            <section className='h-screen flex items-center justify-center'>
+            <section className='h-screen flex items-center justify-center bg-gray-100'>
                 <div className='max-w-sm border shadow bg-white mx-auto p-8'>
                     <h2 className='text-2xl font-semibold pt-5'>ĐĂNG KÝ </h2>
                     <form

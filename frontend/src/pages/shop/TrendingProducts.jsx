@@ -9,8 +9,8 @@ const TrendingProducts = () => {
     }
   return (
     <section className='section__container product__container'>
-    <h2 className='section__header'>San pham hot</h2>
-    <p className='section__subheader mb-12'>san pham trending
+    <h2 className='section__header'>Sản phẩm nổi bật</h2>
+    <p className='section__subheader mb-12'>sản phẩm đang bán chạy 
 
     </p>
 
@@ -20,7 +20,7 @@ const TrendingProducts = () => {
  <div className='product__btn'>
     {
         visibleProducts <products.length &&(
-            <button className='btn' onClick={loadMoreProducts}>LOAD MORE</button>
+            <button className='btn' onClick={loadMoreProducts}>XEM THÊM</button>
         )
     }
     

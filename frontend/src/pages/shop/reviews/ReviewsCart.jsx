@@ -19,7 +19,7 @@ const ReviewsCart = ({ productReviews }) => {
             <div>
                 {
                     reviews.length > 0 ? (<div>
-                        <h3 className='text-lg font-medium'>All comment :</h3>
+                        <h3 className='text-lg font-medium'>Tất cả bình luận:</h3>
                         <div>
                             {
                                 reviews.map((review, index) => (
@@ -39,7 +39,7 @@ const ReviewsCart = ({ productReviews }) => {
                                 ))
                             }
                         </div>
-                    </div>) : <p>No reviews yet</p>
+                    </div>) : <p>Không có bình luận nào.</p>
                 }
             </div>
 
@@ -47,7 +47,7 @@ const ReviewsCart = ({ productReviews }) => {
             <div className='mt-12'>
                 <button 
                 onClick={handleOpenReviewModal}
-                className='px-6 py-3 bg-primary text-white rounded-md'>Add a reviews</button>
+                className='px-6 py-3 bg-primary text-white rounded-md'>Thêm bình luận</button>
             </div>
 
             {/**Review modal */}

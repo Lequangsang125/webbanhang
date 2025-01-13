@@ -7,7 +7,7 @@ import { logout } from '../../redux/features/auth/authSlice';
 const AdminDashboard = () => {
     const navItems = [
         { path: '/dashboard/admin', label: 'Bảng điều khiển Admin' },
-        { path: "/dashboard/add-new-post", label: 'Thêm bài viết' },
+        { path: "/dashboard/add-product", label: 'Thêm sản phảm' },
         { path: "/dashboard/manage-products", label: 'Quản lý sản phẩm' },
         { path: "/dashboard/users", label: 'Quản lý người dùng' },
         { path: "/dashboard/manage-orders", label: 'Quản lý đơn hàng' },
@@ -33,7 +33,7 @@ const AdminDashboard = () => {
     <div>
       <div className='nav__logo'>
         <Link to={"/"}>Lebaba <span>.</span></Link>
-        <p className='text-xs italic'>Admin Dashboard</p>
+        <p className='text-xs italic'>Bảng điều khiển của ADMIN</p>
       </div>
       <hr className='mt-5' />
       <ul className='space-y-5 mt-5'>

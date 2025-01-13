@@ -18,6 +18,9 @@ app.use(cors({
     credentials: true
 }))
 
+//image upload
+const uploadImage = require("./src/utils/uploadImage");
+
 // all routes
 const authRoutes = require('./src/users/user.route');
 const productRoutes = require('./src/products/products.route')
@@ -41,6 +44,16 @@ async function main() {
         res.send('lebaba e-commerce server is running!')
     })    
 }
+
+app.post("/uploadImage",(req,res) =>{
+    uploadImage(req.body.image)
+    .then((url) =>{
+        res.send(url)
+    })
+    .catch((err) => {
+        res.status(500).send(err)
+    })
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

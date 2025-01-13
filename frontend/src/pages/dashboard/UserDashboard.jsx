@@ -32,7 +32,7 @@ const UserDashboard = () => {
       <div>
         <div className='nav__logo'>
           <Link to={"/"}>Lebaba <span>.</span></Link>
-          <p className='text-xs italic'>User Dashboard</p>
+          <p className='text-xs italic'>Bảng điều khiển người dùng</p>
         </div>
         <hr className='mt-5' />
         <ul className='space-y-5 mt-5'>

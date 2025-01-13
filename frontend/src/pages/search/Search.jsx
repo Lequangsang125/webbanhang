@@ -17,8 +17,8 @@ const Search = () => {
   return (
     <>
      <section className='section__container bg-primary-light'>
-        <h2 className='section__header capitalize'>Search Products</h2>
-        <p className='section__subheader'>iiiiiiiiiiiiiiiiiiiiiiii</p>
+        <h2 className='section__header capitalize'> Tìm kiếm sản phẩm </h2>
+        <p className='section__subheader'></p>
         </section>
 
         <section className='section__container'>
@@ -27,9 +27,9 @@ const Search = () => {
             value={searchQuery}
             onChange={(e)=> setSearchQuery(e.target.value)}
             className='search-bar w-full max-w-4xl p-2 border rounded'
-            placeholder='Search for products' />
+            placeholder='Nhập tên sản phẩm' />
 
-            <button onClick={handleSearch} className='search-button w-full md:w-auto py-2 px-8 bg-primary text-white rounded'>Search</button>
+            <button onClick={handleSearch} className='search-button w-full md:w-auto py-2 px-8 bg-primary text-white rounded'>Tìm kiếm</button>
         
         </div>
 
