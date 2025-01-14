@@ -69,7 +69,7 @@ const AddProduct = () => {
                     category: '',
                     color: '',})
                     setImage('')
-                    nav('/shop')
+                    nav('/dashboard/manage-products')
             } catch (error) {
                 console.log("failed to submit product", error);
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import commentorIcon from '../../../assets/avatar.png'
-import { fomateDate } from '../../../utils/formateDate'
+import {  formatDate } from '../../../utils/formatDate'
 import RatingStarts from '../../../component/RatingStarts'
 import PostARevies from './PostAReviews'
 const ReviewsCart = ({ productReviews }) => {
@@ -28,7 +28,7 @@ const ReviewsCart = ({ productReviews }) => {
                                             <img src={commentorIcon} className='size-14' alt="" />
                                             <div className='space-y-1'>
                                                 <p className='text-lg font-medium underline capitalize underline-offset-4 text-blue-400'>{review?.userId.username}</p>
-                                                <p className='text-[12px] italic'>{fomateDate(review?.updatedAt)}</p>
+                                                <p className='text-[12px] italic'>{formatDate(review?.updatedAt)}</p>
                                                 <RatingStarts rating={review?.rating} />
                                             </div>
                                         </div>
