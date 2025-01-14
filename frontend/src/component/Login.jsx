@@ -46,7 +46,7 @@ const Login = () => {
     }
     return (
         <div className='bg-gray-100'>
-            <section className='h-screen flex items-center justify-center'>
+            <section className='py-10 flex items-center justify-center'>
                 <div className='max-w-sm border shadow bg-white mx-auto p-8'>
                     <h2 className='text-2xl font-semibold pt-5'>ĐĂNG NHẬP </h2>
                     <form

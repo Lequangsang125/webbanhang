@@ -1,12 +1,18 @@
 import React, { useState } from 'react'
 import ProductCarts from './ProductCarts'
-import products from '../../data/products.json'
+import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi'
 
 const TrendingProducts = () => {
+      const { data: { products = []} = {}, isLoading, error} = useFetchAllProductsQuery({       
+      })
+      console.log(products.length);
+      
     const [visibleProducts, setVisibleProducts] = useState(8);
     const loadMoreProducts = ()=>{
         setVisibleProducts(prevCount => prevCount +4)
     }
+    if (isLoading) return <div>Đang tải sản phẩm...</div>
+    if (error) return <div>Đã xảy ra lỗi khi tải sản phẩm!</div>
   return (
     <section className='section__container product__container'>
     <h2 className='section__header'>Sản phẩm nổi bật</h2>
