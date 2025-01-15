@@ -56,10 +56,7 @@ const ManageUser = () => {
             {
                 error && <div>Error loading users data...</div>
             }
-            {
-                isModalOpen && <UpdateUserModal user={selectedUser} onClose={handleCloseModal}
-                onRoleUpdate={refetch}/>
-            }
+           
             {/* <!-- component --> */}
             <section className="py-1 bg-blueGray-50">
                 <div className="w-full  mb-12 xl:mb-0 px-4 mx-auto">
@@ -104,13 +101,15 @@ const ManageUser = () => {
                                                 {index+1}
                                             </th>
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-                                                {user?.email || 'mr'}
+                                                {user?.email || 'N/A'}
                                             </td>
                                             <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                               {user?.role}
+                                              <span className={`rounded-full py-[2xl] px-3 ${user.role === "admin" ? "bg-blue-500 text-white" : " bg-yellow-500"}`}>{user?.role}</span>
                                             </td>
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                            <Link to={`/dashboard/update-users/${user._id}`} className="bg-blue-500 text-white px-3 py-1 rounded-xl hover:bg-blue-700"><i className="ri-edit-line"></i>Cập nhật</Link>
+                                            <button
+                                            onClick={() => handleEdit(user)}
+                                            className="bg-blue-500 text-white px-3 py-1 rounded-xl hover:bg-blue-700"><i className="ri-edit-line"></i>Cập nhật</button>
                                             </td>
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                               <button
@@ -130,7 +129,10 @@ const ManageUser = () => {
             
                
             </section>
-
+            {
+                isModalOpen && <UpdateUserModal user={selectedUser} onClose={handleCloseModal}
+                onRoleUpdate={refetch}/>
+            }
 
         </>
   )
