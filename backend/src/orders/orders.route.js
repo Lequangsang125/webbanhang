@@ -118,48 +118,61 @@ router.get("/" ,async (req,res) => {
     }
 })
 
-//update order status
-router.patch("/update-status/:id", async (req,res) => {
-    const {id} = req.params;
-    const {status} = req.body;
-    if(!status){
-        return res.status(400).send({message: "Status is required"});
+// update order status
+router.patch("/update-order-status/:id", async (req, res) => {
+    const { id } = req.params;
+    const { status } = req.body;
+    if (!status) {
+      return res.status(400).send({ message: "Status is required" });
     }
+  
     try {
-        const updatedOrder = await Order.findByIdAndUpdate(id,{
-            status: status,
-            updatedAt: new Date(),
-        },{
-            new: true, runValidators: true
-        });
-        if(!updatedOrder){
-            return res.status(404).send({message: "Order not found"});
+      const updatedOrder = await Order.findByIdAndUpdate(
+        id,
+        {
+          status,
+          updatedAt: new Date(),
+        },
+        {
+          new: true,
+          runValidators: true,
         }
-        res.status(200).json({
-            messafe: "Order status updated successfully",
-            order: updatedOrder});
+      );
+  
+      if(!updatedOrder) {
+        return res.status(404).send({ message: "Order not found" });
+      }
+  
+      res.status(200).json({
+        message: "Order status updated successfully",
+        order: updatedOrder
+      })
+  
     } catch (error) {
-        console.error("error updating order status",error);
-        res.status(500).send({message: "Error updating order status"});
+      console.error("Error updating order status", error);
+      res.status(500).send({ message: "Failed to update order status" });
     }
-})
-
-//delete order
-router.delete("/delete/:id", async (req,res) =>{
-    const {id} = req.params;
+  });
+  
+  // delete order
+  router.delete('/delete-order/:id', async( req, res) => {
+    const { id } = req.params;
+  
     try {
-        const order = await Order.findByIdAndDelete(id);
-        if(!order){
-        return res.status(404).send({message: "order not found"});
-        }
-        res.status(200).json({
-            message: "Order deleted successfully",
-            order: deletedOrder
-        });
+      const deletedOrder = await Order.findByIdAndDelete(id);
+      if (!deletedOrder) {
+        return res.status(404).send({ message: "Order not found" });
+      }
+      res.status(200).json({
+        message: "Order deleted successfully",
+        order: deletedOrder
+      })
+      
     } catch (error) {
-        console.error("error deleting order",error);
-        res.status(500).send({message: "Error deleting order"});
+      console.error("Error deleting order", error);
+      res.status(500).send({ message: "Failed to delete order" });
     }
-})
+  } )
+  
 
 module.exports = router;
