@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 
-import productsData from "../../data/products.json"
 import ProductCarts from './ProductCarts'
 import ShopFiltering from './ShopFiltering'
 import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi'
@@ -36,7 +35,10 @@ const ShopPage = () => {
         maxPrice: isNaN(maxPrice) ? '' : maxPrice,
         page: currentPage,
         limit: ProductsPerPage
+        
     })
+    const sortedProducts = [...products].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
     //clear the filter
     const clearFilters = () => {
         setFiltersState({
@@ -77,7 +79,7 @@ const ShopPage = () => {
                                 Hiển thị {startProduct} đến {endProduct} trong {totalProducts} sản phẩm
 
                         </h3>
-                        <ProductCarts products={products} />
+                        <ProductCarts products={sortedProducts} />
 
                         {/**pagination controls */}
                         <div className='mt-6 flex justify-center'>

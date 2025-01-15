@@ -33,7 +33,7 @@ const authApi = createApi({
         getUser: builder.query({
             query: () => ({
                 url:"/users",
-                method: "POST",
+                method: "GET",
             }),
             refetchOnMouth: true,
             invalidatesTags: ["User"],
