@@ -21,7 +21,7 @@ const Footer = () => {
                     </p>
                     <p>
                         <span><i className="ri-phone-fill"></i></span>
-                        123456789
+                        0765911234
                     </p>
                 </div>
 

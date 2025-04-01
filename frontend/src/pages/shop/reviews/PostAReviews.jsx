@@ -35,7 +35,8 @@ const PostAReviews = ({isModalOpen, handleClose}) => {
         handleClose();
     }
     return (
-        <div className={`fixed inset-0 bg-black/90 flex items-center justify-center z-40 px-2 
+        <div className={`fixed inset-0 bg-black/90 flex items-center justify-center
+             z-40 px-2 
     ${isModalOpen ? 'block' : 'hidden'}`}>
             <div className='bg-white p-6 rounded-md shadow-lg w-96 z-50'>
                 <h2 className='text-lg font-medium mb-4'>Thêm bình luận :</h2>
