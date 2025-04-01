@@ -1,3 +1,3 @@
 export const getBaseUrl = () =>{
-    return "https://webbanhang-chi.vercel.app";
+    return "https://webbanhang-delta-green.vercel.app";
 }
