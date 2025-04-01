@@ -34,14 +34,14 @@ app.use('/api/reviews', reviewsRoutes)
 app.use('/api/orders', ordersRoutes)
 app.use('/api/stats', statsRoutes)
 
-main().then(()=>console.log("mongodb successfuly connected.")
+main().then(()=>console.log("Kết nối mongodb thành công.")
 ).catch(err => console.log(err));
 
 async function main() {
     await mongoose.connect(process.env.DB_URL);
 
     app.get('/', (req, res) => {
-        res.send('kết nối db thành công!')
+        res.send('server đang hoạt động')
     })    
 }
 
@@ -56,5 +56,5 @@ app.post("/uploadImage",(req,res) =>{
 })
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`cổng ${port}`)
 })
