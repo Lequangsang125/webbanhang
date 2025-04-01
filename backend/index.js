@@ -41,7 +41,7 @@ async function main() {
     await mongoose.connect(process.env.DB_URL);
 
     app.get('/', (req, res) => {
-        res.send('lebaba e-commerce server is running!')
+        res.send('kết nối db thành công!')
     })    
 }
 
