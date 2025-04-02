@@ -34,40 +34,58 @@ router.post("/create-product", async (req, res) => {
 // Lấy full danh sách sản phẩm 
 router.get("/", async (req, res) => {
     try {
-        const { category, color, minPrice, maxPrice, page = 1, limit = 10 } = req.query;
+        const { 
+            category, 
+            color, 
+            minPrice, 
+            maxPrice, 
+            page = 1, 
+            limit = 10 
+        } = req.query;
 
+        const pageNumber = parseInt(page);
+        const limitNumber = parseInt(limit);
+        
         let filter = {};
-        if (category && category !== "all") {
-            filter.category = category
-        }
+        
+        if (category && category !== "all") filter.category = category;
+        if (color && color !== "all") filter.color = color;
 
-        if (color && color !== "all") {
-            filter.color = color
-        }
-
-        if (minPrice && maxPrice) {
+        if (minPrice || maxPrice) {
+            filter.price = {};
             const min = parseFloat(minPrice);
             const max = parseFloat(maxPrice);
-            if (!isNaN(min) && !isNaN(max)) {
-                filter.price = { $gte: min, $lte: max };
-            }
-
+            if (!isNaN(min)) filter.price.$gte = min;
+            if (!isNaN(max)) filter.price.$lte = max;
+            if (Object.keys(filter.price).length === 0) delete filter.price;
         }
-        const skip = (parseInt(page) - 1) * parseInt(limit);
-        const totalProducts = await Products.countDocuments(filter)
-        const totalPages = Math.ceil(totalProducts / parseInt(limit))
+
+        const totalProducts = await Products.countDocuments(filter);
+        const totalPages = Math.ceil(totalProducts / limitNumber);
+        const skip = (pageNumber - 1) * limitNumber;
+
         const products = await Products.find(filter)
             .skip(skip)
-            .limit(parseInt(limit))
+            .limit(limitNumber)
             .populate("author", "email")
-            .sort({ createAt: -1 });
+            .sort({ createdAt: -1 });  // <-- Đã sửa thành createdAt
 
-        res.status(200).send({ products, totalPages, totalProducts })
+        res.status(200).json({ 
+            success: true,
+            products, 
+            totalPages, 
+            totalProducts,
+            currentPage: pageNumber,
+            limit: limitNumber
+        });
     } catch (error) {
-        console.error("error fetching new product", error);
-        res.status(500).send({ message: "failed to create new product" })
+        console.error("Error:", error);
+        res.status(500).json({ 
+            success: false,
+            message: "Internal server error"
+        });
     }
-})
+});
 
 // Lấy sản phẩm theo id 
 router.get("/:id", async (req, res) => {

@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useUpdateUserRoleMutation } from '../../../../redux/features/auth/authApi';
-
+import Swal from 'sweetalert2';
 const UpdateUserModal = ({ user, onClose, onRoleUpdate }) => {
     const [role, setRole] = useState(user.role);
     const [updateUserRole] = useUpdateUserRoleMutation()
     const handleUpdateRole = async () => {
         try {
             await updateUserRole({ userId: user?._id, role }).unwrap();
-            alert('updated role successfully')
+           Swal.fire({
+                           title: "cập nhật thành công",
+                           icon: "success",
+                       })
             onRoleUpdate();
             onClose();
         } catch (error) {
