@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 
 const Categories = () => {
     const categories = [
-        { name: 'accessories', path: 'accessories', image: category1 },
-        { name: 'dress', path: 'dress', image: category2 },
-        { name: 'jewellery', path: 'jewellery', image: category3 },
-        { name: 'cosmetics', path: 'cosmetics', image: category4 },
+        { name: 'Phụ kiện', path: 'Phụ kiện', image: category1 },
+        { name: 'Váy', path: 'Váy', image: category2 },
+        { name: 'Đồ trang sức', path: 'Đồ trang sức', image: category3 },
+        { name: 'Mỹ phẩm', path: 'Mỹ phẩm', image: category4 },
     ];
 
     return (

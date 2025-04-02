@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useFetchProductByIdQuery } from '../../../redux/features/products/productsApi';
 import { usePostReviewMutation } from '../../../redux/features/reviews/reviewsApi';
 import { useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 
 const PostAReviews = ({isModalOpen, handleClose}) => {
     const {id} = useParams();
@@ -25,7 +26,10 @@ const PostAReviews = ({isModalOpen, handleClose}) => {
         }
         try {
             const response = await postReview(newComment).unwrap();
-            alert('Comment posted susscessfully')
+            Swal.fire({
+                title: " Đánh giá thành công!",
+                icon: "success"
+              });
             setComment('');
             setRating(0);
             refetch();

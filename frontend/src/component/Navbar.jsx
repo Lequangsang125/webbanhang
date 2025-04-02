@@ -16,8 +16,8 @@ const Navbar = () => {
   }
 
   //show user if login
-  const  dispatch = useDispatch();
-  const {user} = useSelector((state)=>state.auth)
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth)
   const [logoutUser] = useLogoutUserMutation()
   const navigate = useNavigate()
 
@@ -29,19 +29,19 @@ const Navbar = () => {
 
   //admin dropdown menu
   const adminDropDownMenus = [
-    {label: "Bảng diều khiển ", path: "/dashboard/admin"},
-    {label: "Quản lý mục", path: "/dashboard/manage-products"},
-    {label: "Tất cả đơn hàng", path: "/dashboard/manage-orders"},
-    {label: "Thêm sản phẩm", path: "/dashboard/add-product"},
+    { label: "Bảng diều khiển ", path: "/dashboard/admin" },
+    { label: "Quản lý mục", path: "/dashboard/manage-products" },
+    { label: "Tất cả đơn hàng", path: "/dashboard/manage-orders" },
+    { label: "Thêm sản phẩm", path: "/dashboard/add-product" },
 
   ]
 
   //user dropdown menus
   const userDropDownMenus = [
-    {label: "Bảng điều khiển", path: "/dashboard"},
-    {label: "Trang cá nhân", path: "/dashboard/profile"},
-    {label: "Chi trả", path: "/dashboard/payments"},
-    {label: "Đặt hàng", path: "/dashboard/orders"},
+    { label: "Bảng điều khiển", path: "/dashboard" },
+    { label: "Trang cá nhân", path: "/dashboard/profile" },
+    { label: "Chi trả", path: "/dashboard/payments" },
+    { label: "Đặt hàng", path: "/dashboard/orders" },
 
   ]
 
@@ -53,8 +53,8 @@ const Navbar = () => {
       dispatch(logout())
       navigate('/login')
     } catch (error) {
-      console.error("faile to logout",error);
-      
+      console.error("faile to logout", error);
+
     }
   }
 
@@ -62,6 +62,10 @@ const Navbar = () => {
     <div>
       <header className='fixed-nav-bar w-bar'>
         <nav className='max-w-screen-2xl mx-auto px-4 flex justify-between items-center'>
+          {/*logo*/}
+
+
+
           <ul className='nav__links'>
             <li className='link'><Link to="/">Trang chủ</Link></li>
             <li className='link'><Link to="/shop">Cửa hàng</Link></li>
@@ -69,10 +73,10 @@ const Navbar = () => {
             <li className='link'><Link to="/contact">Liên hệ</Link></li>
           </ul>
 
-          {/*logo*/}
           <div className='nav__logo'>
-            <Link to="/">Lebaba<span>.</span></Link>
+            <Link to="/">Fashion <span>.</span></Link>
           </div>
+
 
           {/*icon*/}
           <div className='nav__icons relative'>
@@ -90,19 +94,19 @@ const Navbar = () => {
             <span>
               {
                 user && user ? (<>
-                <img
-                onClick={handDropDownToggle}
-                src={user?.profileImage || avatarImg} alt="" className='size-6 rounded-full cursor-pointer'/>
+                  <img
+                    onClick={handDropDownToggle}
+                    src={user?.profileImage || avatarImg} alt="" className='size-6 rounded-full cursor-pointer' />
 
                   {
                     isDropDownOpen && (
                       <div className='absolute right-0 mt-3 p-4 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50'>
                         <ul className='font-medium space-y-4 p-2'>
-                          {dropdownMenus.map((menu,index) =>(
+                          {dropdownMenus.map((menu, index) => (
                             <li key={index}>
                               <Link
-                              onClick={()=> setIsDropDownOpen(false)}
-                               className='dropdown-items' to={menu.path}>{menu.label}</Link>
+                                onClick={() => setIsDropDownOpen(false)}
+                                className='dropdown-items' to={menu.path}>{menu.label}</Link>
                             </li>
                           ))}
                           <li><Link onClick={handleLogout}>Đăng xuất</Link></li>
@@ -115,13 +119,13 @@ const Navbar = () => {
                   <i className="ri-user-line"></i>
                 </Link>)
               }
-              
+
             </span>
           </div>
         </nav>
 
         {
-          isCartOpen && <CartModal products={products} isOpen={isCartOpen} onClose={handleCartToggle}/>
+          isCartOpen && <CartModal products={products} isOpen={isCartOpen} onClose={handleCartToggle} />
         }
       </header>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 // Component PrivateRoute dùng để bảo vệ các route, chỉ cho phép người dùng có quyền phù hợp truy cập.
 const PrivateRoute = ({ children, role }) => {
     // Lấy thông tin user từ Redux store (state.auth).
@@ -12,7 +12,11 @@ const PrivateRoute = ({ children, role }) => {
 
     // Nếu user chưa đăng nhập (user = null), hiển thị thông báo và chuyển hướng đến trang login.
     if (!user) {
-        alert("Bạn cần đăng nhập để truy cập trang này");
+        Swal.fire({
+          icon: "error",
+          title: "Lỗi...",
+          text: "Bạn cần đăng nhập để truy cập trang này!",
+        });
         return (
             <Navigate
                 to="/login" // Chuyển hướng đến trang login.

@@ -50,7 +50,7 @@ const CartModal = ({ products, isOpen, onClose }) => {
                 </p>
                 {/* Nút hành động */}
                 <button
-                  className="px-8 py-3 bg-emerald-500 text-white rounded-lg shadow-md hover:bg-emerald-600 transition"
+                  className="px-8 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-emerald-600 transition"
                   onClick={() => {
                     onClose();
                     nav('/shop');

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useLogoutUserMutation } from '../../redux/features/auth/authApi';
 import { logout } from '../../redux/features/auth/authSlice';
-
+import Swal from 'sweetalert2';
 const AdminDashboard = () => {
     const navItems = [
         { path: '/dashboard/admin', label: 'Bảng điều khiển Admin' },
@@ -22,7 +22,10 @@ const AdminDashboard = () => {
       try {
         await logoutUser().unwrap();
         dispatch(logout());
-        alert("Đăng xuất thành công")
+        Swal.fire({
+                        title: "Đăng xuất thành công!",
+                        icon: "success"
+                      });
         nav("/")
       } catch (error) {
         console.error("faild to logout", error)
@@ -32,7 +35,7 @@ const AdminDashboard = () => {
     <div className='space-y-5 bg-white p-8 md:h-screen flex flex-col justify-between'>
     <div>
       <div className='nav__logo'>
-        <Link to={"/"}>Lebaba <span>.</span></Link>
+        <Link to={"/"}>Fashion <span>.</span></Link>
         <p className='text-xs italic'>Bảng điều khiển của ADMIN</p>
       </div>
       <hr className='mt-5' />

@@ -31,7 +31,7 @@ const UserDashboard = () => {
     <div className='space-y-5 bg-white p-8 md:h-screen flex flex-col justify-between'>
       <div>
         <div className='nav__logo'>
-          <Link to={"/"}>Lebaba <span>.</span></Link>
+          <Link to={"/"}>Fashion <span>.</span></Link>
           <p className='text-xs italic'>Bảng điều khiển người dùng</p>
         </div>
         <hr className='mt-5' />

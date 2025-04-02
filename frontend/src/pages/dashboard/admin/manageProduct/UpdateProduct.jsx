@@ -9,22 +9,22 @@ import UploadImage from '../addProduct/UploadImage';
 
 const categories = [
   { label: 'Chọn danh mục', value: '' },
-  { label: 'Accessories', value: 'accessories' },
-  { label: 'Dress', value: 'dress' },
-  { label: 'Jewellery', value: 'jewellery' },
-  { label: 'Cosmetics', value: 'cosmetics' },
-  { label: 'Skin care', value: 'skin-care' },
+  { label: 'Phụ kiện', value: 'Phụ kiện' },
+  { label: 'Váy', value: 'Váy' },
+  { label: 'Trang sức', value: 'Trang sức' },
+  { label: 'Mỹ phẩm', value: 'Mỹ phẩm' },
+  { label: 'Chăm sóc da', value: 'Chăm sóc da' },
 ];
 
 const colors = [
   { label: 'Chọn màu', value: '' },
-  { label: 'Black', value: 'black' },
-  { label: 'Red', value: 'red' },
-  { label: 'Gold', value: 'gold' },
-  { label: 'Blue', value: 'blue' },
-  { label: 'Silver', value: 'silver' },
-  { label: 'Beige', value: 'beige' },
-  { label: 'Green', value: 'green' },
+  { label: 'Đen', value: 'Đen' },
+  { label: 'Đỏ', value: 'Đỏ' },
+  { label: 'Vàng', value: 'Vàng' },
+  { label: 'Xanh biển', value: 'Xanh biển' },
+  { label: 'Bạc', value: 'Bạc' },
+  { label: 'Be', value: 'Be' },
+  { label: 'Xanh lá', value: 'Xanh lá' },
 ];
 
 const UpdateProduct = () => {
