@@ -1,37 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import ProductCarts from '../shop/ProductCarts'
-import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi'
-
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import ProductCarts from '../shop/ProductCarts';
+import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi';
 
 const CategoryPage = () => {
-    const { data: { products = [], totalPages, totalProducts } = {}, error, isLoading } = useFetchAllProductsQuery({})
-  const {categoryName} = useParams()
-  const [filteredProducts, setFilteredProducts] = useState([])
+    // Lấy danh sách sản phẩm từ Redux API
+    const { data: { products = [] } = {}, error, isLoading } = useFetchAllProductsQuery({});
+    
+    // Lấy category từ URL
+    const { categoryName } = useParams();
+    const decodedCategory = decodeURIComponent(categoryName).toLowerCase().trim();
 
-  useEffect(()=>{
-    const filtered = products.filter((product)=>
-      product.category === categoryName.toLowerCase()
-    )
-    setFilteredProducts(filtered)
-  },[categoryName])
+    // State để lưu sản phẩm sau khi lọc
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
-  useEffect(()=>{
-    window.scrollTo(0,0)
-  })
-  return (
-    <>
-      <section className='section__container bg-primary-light'>
-        <h2 className='section__header capitalize'>{categoryName}</h2>
-        <p className='section__subheader'></p>
-        </section>
-        {/**products card */}
-        <div className='section__container'>
-          <ProductCarts products={filteredProducts}/>
-        </div>
+    // Cập nhật danh sách sản phẩm mỗi khi category hoặc products thay đổi
+    useEffect(() => {
+        if (products.length > 0) {
+            const filtered = products.filter((product) =>
+                product.category.toLowerCase().trim() === decodedCategory
+            );
+            setFilteredProducts(filtered);
+        }
+    }, [decodedCategory, products]); // Lắng nghe cả `products`
 
-    </>
-  )
-}
+    // Cuộn lên đầu trang khi thay đổi danh mục
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [decodedCategory]);
 
-export default CategoryPage
+    return (
+        <>
+            <section className='section__container bg-primary-light'>
+                <h2 className='section__header capitalize'>{decodedCategory}</h2>
+            </section>
+
+            {/* Hiển thị sản phẩm */}
+            <div className='section__container'>
+                {isLoading ? <p>Đang tải sản phẩm...</p> : <ProductCarts products={filteredProducts} />}
+            </div>
+        </>
+    );
+};
+
+export default CategoryPage;
