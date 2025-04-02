@@ -49,9 +49,8 @@ const OrderSummary = () => {
       <div className='px-6 py-4 space-x-5'>
         <h2 className='text-2xl font-bold text-text-dark'>Tóm tắt đơn hàng</h2>
         <p className='text-text-dark mt-3 '>Mục đã chọn: {selectedItems}</p>
-        <p className='mt-3'>Tổng giá: ${totalPrice.toFixed(2)}</p>
-        <p className='mt-3'>Thuế ({taxRate * 100}%): ${tax.toFixed(2)}</p>
-        <h3 className='font-bold mt-3'>Tổng cộng: ${grandTotal.toFixed(2)}</h3>
+<h3 className='font-bold mt-3'>Tổng cộng: {totalPrice.toLocaleString('vi-VN')}₫</h3>
+
         <div className='px-4 mb-6'>
           <button
           onClick={(e)=>{
