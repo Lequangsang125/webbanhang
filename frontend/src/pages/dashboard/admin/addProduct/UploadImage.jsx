@@ -69,7 +69,7 @@ const UploadImage = ({ name, setImage }) => {
                     url && (
                         <div>
                             <p className='mt-2 text-sm text-green-600'>Thêm hình ảnh thành công.</p>
-                            <img src={url} alt="uploaded-image" />
+                            <img className='object-cover max-w-[200px]' src={url} alt="uploaded-image" />
                         </div>
                     )
                 }
