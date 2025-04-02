@@ -22,6 +22,7 @@ import ManageProduct from "../pages/dashboard/admin/manageProduct/ManageProduct"
 import UpdateProduct from "../pages/dashboard/admin/manageProduct/UpdateProduct";
 import ManageUser from "../pages/dashboard/admin/users/ManageUser";
 import ManageOrders from "../pages/dashboard/admin/manageOrders/ManageOrders";
+import NotFound from "../pages/NotFound";
 
 
 const router = createBrowserRouter([
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register/>
             },
+            {path: "*", element: <NotFound/>} // Route xử lý lỗi 404
         ]
     },
 

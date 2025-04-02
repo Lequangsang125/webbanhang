@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import products from '../../data/products.json'
 import ProductCarts from '../shop/ProductCarts'
+import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi'
 
 
 const CategoryPage = () => {
+    const { data: { products = [], totalPages, totalProducts } = {}, error, isLoading } = useFetchAllProductsQuery({})
   const {categoryName} = useParams()
   const [filteredProducts, setFilteredProducts] = useState([])
 

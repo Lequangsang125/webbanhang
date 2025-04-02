@@ -5,21 +5,21 @@ import ShopFiltering from './ShopFiltering'
 import { useFetchAllProductsQuery } from '../../redux/features/products/productsApi'
 
 const filters = {
-    categories: ['all', 'accessories', 'dress', 'jewellery', 'cosmetics'],
-    colors: ['all', 'black', 'red', 'gold', 'blue', 'silver', 'beige', 'green'],
+    categories: ['Tất cả', 'Phụ kiện', 'Váy', 'Đồ trang sức', 'Mỹ phẩm','Chăm sóc da'],
+    colors: ['Tất cả', 'Đen', 'Đỏ', 'Vàng', 'Xanh biển', 'Bạc', 'Be', 'Xanh lá'],
     priceRanges: [
-        { label: 'Under $50', min: 0, max: 50 },
-        { label: '$50 - $100', min: 50, max: 100 },
-        { label: '$100 - $200', min: 100, max: 200 },
-        { label: '$200 and above', min: 200, max: Infinity },
+        { label: 'Dưới 100.000 vnđ', min: 0, max: 100000 },
+        { label: 'Từ 100.000 - 200.000 vnđ', min: 100000, max: 200000 },
+        { label: 'Từ 200.000 - 500.000 vnđ', min: 200000, max: 500000 },
+        { label: 'Trên 500.000 vnđ', min: 500000, max: Infinity },
 
     ]
 }
 
 const ShopPage = () => {
     const [filtersState, setFiltersState] = useState({
-        category: 'all',
-        color: 'all',
+        category: 'Tất cả',
+        color: 'Tất cả',
         priceRange: ''
     })
 
@@ -29,8 +29,8 @@ const ShopPage = () => {
     const { category, color, priceRange } = filtersState;
     const [minPrice, maxPrice] = priceRange.split('-').map(Number)
     const { data: { products = [], totalPages, totalProducts } = {}, error, isLoading } = useFetchAllProductsQuery({
-        category: category !== 'all' ? category : '',
-        color: color !== 'all' ? color : '',
+        category: category !== 'Tất cả' ? category : '',
+        color: color !== 'Tất cả' ? color : '',
         minPrice: isNaN(minPrice) ? '' : minPrice,
         maxPrice: isNaN(maxPrice) ? '' : maxPrice,
         page: currentPage,
@@ -42,8 +42,8 @@ const ShopPage = () => {
     //clear the filter
     const clearFilters = () => {
         setFiltersState({
-            category: 'all',
-            color: 'all',
+            category: 'Tất cả',
+            color: 'Tất cả',
             priceRange: ''
         })
     }

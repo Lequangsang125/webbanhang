@@ -4,30 +4,28 @@ import TextInput from './TextInput'
 import SelectInput from './SelectInput'
 import UploadImage from './UploadImage'
 import { useAddProductMutation } from '../../../../redux/features/products/productsApi'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 const categories = [
     { label: 'Chọn danh mục', value: '' },
-    { label: 'Accessories', value: 'accessories' },
-    { label: 'Dress', value: 'dress' },
-    { label: 'Jewellery', value: 'jewellery' },
-    { label: 'Cosmetics', value: 'cosmetics' },
-    { label: 'Skin care', value: 'skin-care' },
+    { label: 'Phụ kiện', value: 'Phụ kiện' },
+    { label: 'Váy', value: 'Váy' },
+    { label: 'Đồ trang sức', value: 'Đồ trang sức' },
+    { label: 'Mỹ phẩm', value: 'Mỹ phẩm' },
+    { label: 'Chăm sóc da', value: 'Chăm sóc da' },
 ]
 
 const colors = [
     { label: 'Chọn màu', value: '' },
-    { label: 'Black', value: 'black' },
-    { label: 'Red', value: 'red' },
-    { label: 'Gold', value: 'gold' },
-    { label: 'Blue', value: 'blue' },
-    { label: 'Silver', value: 'silver' },
-    { label: 'Beige', value: 'beige' },
-    { label: 'Green', value: 'green' },
+    { label: 'Đen', value: 'Đen' },
+    { label: 'Đỏ', value: 'Đỏ' },
+    { label: 'Vàng', value: 'Vàng' },
+    { label: 'Xanh nước biển', value: 'Xanh nước biển' },
+    { label: 'Bạc', value: 'Bạc' },
+    { label: 'Be', value: 'Be' },
+    { label: 'Xanh lá', value: 'Xanh lá' },
 ]
-
-
 
 const AddProduct = () => {
     const { user } = useSelector((state) => state.auth);
@@ -86,27 +84,27 @@ const AddProduct = () => {
                         value={product.name}
                         onChange={handleChange}
                         type="text"
-                        placeholder="Product Name"
+                        placeholder="Tên sản phẩm"
                     />
 
                     <SelectInput
-                        label="Danh mục "
+                        label="Danh mục"
                         name="category"
                         value={product.category}
                         onChange={handleChange}
                         options={categories}
                     />
                     <SelectInput
-                        label="Color "
+                        label="Màu sắc"
                         name="color"
                         value={product.color}
                         onChange={handleChange}
                         options={colors}
-                        placeholder="color Name"
+                        placeholder="Chọn màu"
                     />
 
                     <TextInput
-                        label="Price "
+                        label="Giá"
                         name="price"
                         value={product.price}
                         onChange={handleChange}
@@ -118,20 +116,20 @@ const AddProduct = () => {
                         name="image"
                         id="image"
                         value={e => setImage(e.target.value)}
-                        placeholder="Image"
+                        placeholder="Hình ảnh"
                         setImage={setImage}
                     />
 
                     <div>
-                        <label htmlFor="description" className='block text-sm font-medium text-gay-700'>Description</label>
-                        <textarea name="description" id="description" className='add-product-InputCSS' value={product.description} placeholder='Mô tả' onChange={handleChange}></textarea>
+                        <label htmlFor="description" className='block text-sm font-medium text-gray-700'>Mô tả</label>
+                        <textarea name="description" id="description" className='add-product-InputCSS' value={product.description} placeholder='Mô tả sản phẩm' onChange={handleChange}></textarea>
                         <div>
                             <button
                                 type='submit'
                                 className='add-product-btn'
                                 disabled={isLoading}
                             >
-                                Thêm sản phẩm 
+                                Thêm sản phẩm
                             </button>
                         </div>
                     </div>
@@ -140,4 +138,4 @@ const AddProduct = () => {
         )
     }
 
-    export default AddProduct
+export default AddProduct

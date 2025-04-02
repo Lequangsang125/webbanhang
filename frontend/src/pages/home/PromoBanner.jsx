@@ -10,7 +10,7 @@ const PromoBanner = () => {
         </div>
         <div className='banner__card'>
             <span><i className="ri-exchange-dollar-line"></i></span>
-            <h4>Thanh toan nhanh chong</h4>
+            <h4>Thanh toán nhanh chóng</h4>
             <p>Thương mại điện tử có một hệ thống đánh giá nơi khách hàng có thể chia sẻ phản hồi.</p>
         </div>
         <div className='banner__card'>

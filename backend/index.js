@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS Configuration
 const allowedOrigins = [
+  'http://localhost:5173',
   'https://webbanhang-lequangsang.vercel.app', // Miền chính
   'https://webbanhang-lequangsang-*.vercel.app' // Miền tạm thời của Vercel
 ];
@@ -69,5 +70,5 @@ app.post("/uploadImage", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`cổng ${port}`)
+  console.log(`cổng http://localhost:${port}`)
 });
