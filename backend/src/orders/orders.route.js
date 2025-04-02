@@ -51,7 +51,7 @@ router.post("/confirm-payment", async (req, res) => {
                 productId: item.price.product,
                 quantity: item.quantity,
             }))
-            const amount = session.amount_total / 100;
+            const amount = session.amount_total;
             order = new Order({
                 orderId: paymentIntentId,
                 amount,
