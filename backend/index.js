@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // CORS Configuration
 const allowedOrigins = [
+  'https://sanglq1255.id.vn',
   'http://localhost:5173',
   'https://webbanhang-lequangsang.vercel.app', // Miền chính
   'https://webbanhang-lequangsang-*.vercel.app' // Miền tạm thời của Vercel
