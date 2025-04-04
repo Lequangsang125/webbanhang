@@ -61,9 +61,9 @@ const UserProfile = () => {
                 <div className='flex items-center mb-4'>
                     <img src={formData?.profileImage || avatarImg} alt="" className='w-32 h-32 object-cover rounded-full' />
                     <div className='ml-6'>
-                        <h3 className='font-semibold text-2xl'>Username: {formData?.username || 'N/A'}</h3>
-                        <p className='text-gray-700'>User Bio: {formData.bio || 'N/A'}</p>
-                        <p className='text-gray-700'>Profession: {formData.profession || 'N/A'}</p>
+                        <h3 className='font-semibold text-2xl'>Tên người dùng: {formData?.username || 'N/A'}</h3>
+                        <p className='text-gray-700'>Tiểu sử: {formData.bio || 'N/A'}</p>
+                        <p className='text-gray-700'>Nghề nghiệp: {formData.profession || 'N/A'}</p>
                     </div>
                     <button
                         onClick={() => setIsModalOpen(true)}
