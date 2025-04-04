@@ -20,20 +20,22 @@ router.post("/create-checkout-session", async (req, res) => {
       },
       quantity: product.quantity,
     }))
-    const session = await stripe.checkout.sessions.create({
-      payment_method_types: ['card'],
-      line_items: lineItems,
-      mode: 'payment',
-      // Sử dụng biến môi trường để thay đổi URL tùy theo môi trường
-      const successUrl = process.env.NODE_ENV === 'development' ?
-        'http://localhost:5173/success' :
-        'https://webbanhang-lequangsang.vercel.app/success';
-
-      const cancelUrl = process.env.NODE_ENV === 'development' ?
-        'http://localhost:5173/cancel' :
-        'https://webbanhang-lequangsang.vercel.app/cancel';
-
-    })
+    const successUrl = process.env.NODE_ENV === 'development'
+    ? 'http://localhost:5173/success'
+    : 'https://webbanhang-lequangsang.vercel.app/success';
+  
+  const cancelUrl = process.env.NODE_ENV === 'development'
+    ? 'http://localhost:5173/cancel'
+    : 'https://webbanhang-lequangsang.vercel.app/cancel';
+  
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types: ['card'],
+    line_items: lineItems,
+    mode: 'payment',
+    success_url: successUrl,
+    cancel_url: cancelUrl,
+  });
+  
 
     res.json({ id: session.id })
   } catch (error) {
