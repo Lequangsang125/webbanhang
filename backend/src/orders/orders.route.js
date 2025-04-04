@@ -22,11 +22,11 @@ router.post("/create-checkout-session", async (req, res) => {
     }))
     const successUrl = process.env.NODE_ENV === 'development'
     ? 'http://localhost:5173/success'
-    : 'https://webbanhang-lequangsang.vercel.app/success';
+    : 'https://sanglq1255.id.vn/success';
   
   const cancelUrl = process.env.NODE_ENV === 'development'
     ? 'http://localhost:5173/cancel'
-    : 'https://webbanhang-lequangsang.vercel.app/cancel';
+    : 'https://sanglq1255.id.vn/cancel';
   
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
