@@ -20,13 +20,10 @@ router.post("/create-checkout-session", async (req, res) => {
       },
       quantity: product.quantity,
     }))
-    const successUrl = process.env.NODE_ENV === 'development'
-    ? 'http://localhost:5173/success'
-    : 'https://sanglq1255.id.vn/success';
+    const successUrl= 'https://sanglq1255.id.vn/success?session_id={CHECKOUT_SESSION_ID}'
+
   
-  const cancelUrl = process.env.NODE_ENV === 'development'
-    ? 'http://localhost:5173/cancel'
-    : 'https://sanglq1255.id.vn/cancel';
+  const cancelUrl = 'https://sanglq1255.id.vn/cancel';
   
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
