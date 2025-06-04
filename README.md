@@ -1,71 +1,72 @@
-# 🛍️ sanglq1255.id.vn - Website Thương Mại Điện Tử Thời Trang
+# 🛍️ sanglq1255.id.vn - Website Thời Trang TMĐT
 
 **Thời gian phát triển:** 15/12/2024 – 18/01/2025  
-**Vai trò:** Fullstack Developer  
+**Vai trò:** Lập trình viên Fullstack  
 
-Website bán hàng thời trang hiện đại, thân thiện với người dùng, được xây dựng với kiến trúc fullstack, hỗ trợ quản lý sản phẩm, đơn hàng, người dùng và thanh toán trực tuyến.
-
----
+Website thương mại điện tử thời trang với đầy đủ tính năng quản lý sản phẩm, đơn hàng và tích hợp thanh toán trực tuyến.
 
 ## 🚀 Công nghệ sử dụng
 
-### Frontend:
-- React.js
-- Redux Toolkit
-- Tailwind CSS
+### Frontend
+- React.js + Vite
+- Redux Toolkit (Quản lý state)
+- Tailwind CSS (Styling)
+- React Hook Form (Xác thực form)
+- Axios (Giao tiếp API)
 
-### Backend:
-- Node.js
-- Express.js
-- MongoDB (NoSQL Database)
-
----
+### Backend
+- Node.js + Express.js
+- MongoDB (Cơ sở dữ liệu)
+- Mongoose (ODM)
+- JWT (Xác thực)
+- Bcryptjs (Mã hóa mật khẩu)
+- Stripe API (Cổng thanh toán)
 
 ## 🔑 Tính năng chính
 
-- ✅ **CRUD đầy đủ**: Quản lý sản phẩm, người dùng và đơn hàng (thêm, sửa, xoá, xem chi tiết)
-- 🔍 **Tìm kiếm nâng cao**: Theo danh mục, màu sắc, khoảng giá
-- 🛒 **Giỏ hàng thông minh**: Tính tổng tiền, cập nhật nhanh số lượng
-- 💳 **Thanh toán online**: Tích hợp Stripe (thẻ tín dụng quốc tế)
-- 👤 **Đăng ký/Đăng nhập**: Có xác thực người dùng và quản lý thông tin cá nhân
-- 🔐 **Phân quyền vai trò**: Admin và người dùng, dùng JWT cho bảo mật
-- 🧂 **Bảo mật mật khẩu**: Mã hoá bằng bcryptjs
+### Quản lý sản phẩm
+- Thêm/sửa/xóa/xem sản phẩm
+- Phân loại theo danh mục, màu sắc
+- Bộ lọc theo giá, đánh giá
 
----
+### Hệ thống người dùng
+- Đăng ký/đăng nhập với JWT
+- Phân quyền Admin/User
+- Quản lý thông tin cá nhân
 
-## 📦 Cài đặt & Chạy dự án
+### Giỏ hàng & Thanh toán
+- Giỏ hàng thời gian thực
+- Tích hợp Stripe (chế độ test)
+- Lưu lịch sử giao dịch
 
-### 1. Clone dự án:
+## 🛠️ Cài đặt
+
 ```bash
+# Clone dự án
 git clone https://github.com/sanglq1255/webbanhang
-2. Cài đặt và khởi động:
-👉 Frontend
-bash
-1. cd frontend
-2. npm install
-3. npm run dev
-👉 Backend
-bash
-1. cd backend
-2. npm install
-3. npm run dev
-```
-💳 Thông tin thẻ demo (Stripe Testing)
-Chỉ dùng cho môi trường Test Mode - không tiêu tiền thật!
+cd webbanhang
 
-Loại thẻ	   Số thẻ	                    CVC (CVV)	       Ngày hết hạn
-Visa	       4242 4242 4242 4242	      Bất kỳ 3 số	     VD: 12/34
+# Cài đặt backend
+cd backend
+npm install
+cp .env.example .env
+npm run dev
 
+# Cài đặt frontend (terminal mới)
+cd ../frontend
+npm install
+npm run dev
+💳 Thông tin thanh toán test
+Loại thẻ	Số thẻ	CVC	Hết hạn
+Visa	4242 4242 4242 4242	123	12/34
+Lưu ý: Chỉ dùng được trong chế độ test
 
-🖼️ Giao diện demo!
-🏠 Trang chủ
-[Ảnh chụp màn hình 2025-06-04 143411](https://github.com/user-attachments/assets/0aa6eefc-bf9e-4a63-a256-a5e3dc94551f)
+📸 Hình ảnh demo
+Trang chủ
+![Ảnh chụp màn hình 2025-06-04 143411](https://github.com/user-attachments/assets/9445a657-08fe-4ad2-af99-b13ff8a2729b)
 
-⚙️ Trang quản trị (Admin)
-Tài khoản demo: admin@gmail.com
-Mật khẩu: admin@gmail.com
-![Ảnh chụp màn hình 2025-06-04 143452](https://github.com/user-attachments/assets/64bf26b8-b47b-4645-8a92-a5ba38ef1ae5)
-
-
-
-
+Trang quản trị
+Tài khoản demo:
+📧 Email: admin@gmail.com
+🔑 Mật khẩu: admin123
+![Ảnh chụp màn hình 2025-06-04 143452](https://github.com/user-attachments/assets/24b37965-93a8-4e98-818f-add035ae585a)
