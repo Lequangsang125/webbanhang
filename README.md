@@ -61,12 +61,12 @@ Loại thẻ	Số thẻ	CVC	Hết hạn
 Visa	4242 4242 4242 4242	123	12/34
 Lưu ý: Chỉ dùng được trong chế độ test
 ```
-📸 Hình ảnh demo
-Trang chủ
+## 📸 Hình ảnh demo
+# Trang chủ
 ![Ảnh chụp màn hình 2025-06-04 143411](https://github.com/user-attachments/assets/9445a657-08fe-4ad2-af99-b13ff8a2729b)
 
-Trang quản trị
+# Trang quản trị
 Tài khoản demo:
-📧 Email: admin@gmail.com
-🔑 Mật khẩu: admin123
+- 📧 Email: admin@gmail.com
+- 🔑 Mật khẩu: admin123
 ![Ảnh chụp màn hình 2025-06-04 143452](https://github.com/user-attachments/assets/24b37965-93a8-4e98-818f-add035ae585a)
