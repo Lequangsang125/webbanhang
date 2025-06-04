@@ -41,18 +41,15 @@ git clone https://github.com/sanglq1255/webbanhang
 2. Cài đặt và khởi động:
 👉 Frontend
 bash
-Sao chép
-Chỉnh sửa
-cd frontend
-npm install
-npm run dev
+1. cd frontend
+2. npm install
+3. npm run dev
 👉 Backend
 bash
-Sao chép
-Chỉnh sửa
-cd backend
-npm install
-npm run dev
+1. cd backend
+2. npm install
+3. npm run dev
+
 💳 Thông tin thẻ demo (Stripe Testing)
 Chỉ dùng cho môi trường Test Mode - không tiêu tiền thật!
 
@@ -60,19 +57,15 @@ Loại thẻ	Số thẻ	CVC (CVV)	Ngày hết hạn
 Visa	4242 4242 4242 4242	Bất kỳ 3 số	VD: 12/34
 
 
-🖼️ Giao diện demo
+🖼️ Giao diện demo!
 🏠 Trang chủ
-
+[Ảnh chụp màn hình 2025-06-04 143411](https://github.com/user-attachments/assets/0aa6eefc-bf9e-4a63-a256-a5e3dc94551f)
 
 ⚙️ Trang quản trị (Admin)
 Tài khoản demo: admin@gmail.com
-
 Mật khẩu: admin@gmail.com
+![Ảnh chụp màn hình 2025-06-04 143452](https://github.com/user-attachments/assets/64bf26b8-b47b-4645-8a92-a5ba38ef1ae5)
 
-
-
-📞 Liên hệ
-Email: sanglq1255@gmail.com
 
 
 
