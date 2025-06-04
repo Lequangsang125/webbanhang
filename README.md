@@ -4,7 +4,40 @@
 **Vai trò:** Lập trình viên Fullstack  
 
 Website thương mại điện tử thời trang với đầy đủ tính năng quản lý sản phẩm, đơn hàng và tích hợp thanh toán trực tuyến.
+# 📸 Hình ảnh demo
+## Trang chủ
 
+![Ảnh chụp màn hình 2025-06-04 143411](https://github.com/user-attachments/assets/9445a657-08fe-4ad2-af99-b13ff8a2729b)
+
+##  Trang quản trị
+
+Tài khoản demo:
+- 📧 Email: admin@gmail.com
+- 🔑 Mật khẩu: admin@gmail.com
+- 
+![Ảnh chụp màn hình 2025-06-04 143452](https://github.com/user-attachments/assets/24b37965-93a8-4e98-818f-add035ae585a)
+
+## 🛠️ Cài đặt
+
+```bash
+# Clone dự án
+git clone https://github.com/sanglq1255/webbanhang
+cd webbanhang
+
+# Cài đặt backend
+- cd backend
+- npm install
+- npm run dev
+
+# Cài đặt frontend 
+- cd frontend
+- npm install
+- npm run dev
+💳 Thông tin thanh toán test
+Loại thẻ	     Số thẻ	                 CVC	  Hết hạn
+Visa	         4242 4242 4242 4242	   123	  12/34
+Lưu ý: Chỉ dùng được trong chế độ test
+```
 ## 🚀 Công nghệ sử dụng
 
 ### Frontend
@@ -39,37 +72,3 @@ Website thương mại điện tử thời trang với đầy đủ tính năng 
 - Tích hợp Stripe (chế độ test)
 - Lưu lịch sử giao dịch
 
-## 🛠️ Cài đặt
-
-```bash
-# Clone dự án
-git clone https://github.com/sanglq1255/webbanhang
-cd webbanhang
-
-# Cài đặt backend
-cd backend
-npm install
-cp .env.example .env
-npm run dev
-
-# Cài đặt frontend (terminal mới)
-cd ../frontend
-npm install
-npm run dev
-💳 Thông tin thanh toán test
-Loại thẻ	Số thẻ	CVC	Hết hạn
-Visa	4242 4242 4242 4242	123	12/34
-Lưu ý: Chỉ dùng được trong chế độ test
-```
-# 📸 Hình ảnh demo
-## Trang chủ
-
-![Ảnh chụp màn hình 2025-06-04 143411](https://github.com/user-attachments/assets/9445a657-08fe-4ad2-af99-b13ff8a2729b)
-
-##  Trang quản trị
-
-Tài khoản demo:
-- 📧 Email: admin@gmail.com
-- 🔑 Mật khẩu: admin@gmail.com
-- 
-![Ảnh chụp màn hình 2025-06-04 143452](https://github.com/user-attachments/assets/24b37965-93a8-4e98-818f-add035ae585a)
