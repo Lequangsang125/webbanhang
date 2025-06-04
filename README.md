@@ -49,12 +49,12 @@ bash
 1. cd backend
 2. npm install
 3. npm run dev
-
+```
 💳 Thông tin thẻ demo (Stripe Testing)
 Chỉ dùng cho môi trường Test Mode - không tiêu tiền thật!
 
-Loại thẻ	Số thẻ	CVC (CVV)	Ngày hết hạn
-Visa	4242 4242 4242 4242	Bất kỳ 3 số	VD: 12/34
+Loại thẻ	   Số thẻ	                    CVC (CVV)	       Ngày hết hạn
+Visa	       4242 4242 4242 4242	      Bất kỳ 3 số	     VD: 12/34
 
 
 🖼️ Giao diện demo!
