@@ -60,7 +60,7 @@ npm run dev
 Loại thẻ	Số thẻ	CVC	Hết hạn
 Visa	4242 4242 4242 4242	123	12/34
 Lưu ý: Chỉ dùng được trong chế độ test
-
+```
 📸 Hình ảnh demo
 Trang chủ
 ![Ảnh chụp màn hình 2025-06-04 143411](https://github.com/user-attachments/assets/9445a657-08fe-4ad2-af99-b13ff8a2729b)
