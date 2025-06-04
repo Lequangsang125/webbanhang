@@ -36,18 +36,43 @@ Website bán hàng thời trang hiện đại, thân thiện với người dùn
 ## 📦 Cài đặt & Chạy dự án
 
 ### 1. Clone dự án:
+```bash
 git clone https://github.com/sanglq1255/webbanhang
-
-### 2. cài đặt dự án
-# Cài frontend
+2. Cài đặt và khởi động:
+👉 Frontend
+bash
+Sao chép
+Chỉnh sửa
 cd frontend
 npm install
 npm run dev
-
-# Cài backend
+👉 Backend
+bash
+Sao chép
+Chỉnh sửa
 cd backend
 npm install
-npm run 
+npm run dev
+💳 Thông tin thẻ demo (Stripe Testing)
+Chỉ dùng cho môi trường Test Mode - không tiêu tiền thật!
 
-# GIAO DIỆN TRANG CHỦ 
-![Ảnh chụp màn hình 2025-06-04 142431](https://github.com/user-attachments/assets/37948205-adcd-4680-bfb6-2f7fe061c495)
+Loại thẻ	Số thẻ	CVC (CVV)	Ngày hết hạn
+Visa	4242 4242 4242 4242	Bất kỳ 3 số	VD: 12/34
+
+
+🖼️ Giao diện demo
+🏠 Trang chủ
+
+
+⚙️ Trang quản trị (Admin)
+Tài khoản demo: admin@gmail.com
+
+Mật khẩu: admin@gmail.com
+
+
+
+📞 Liên hệ
+Email: sanglq1255@gmail.com
+
+
+
